@@ -2,115 +2,113 @@ const carDetails = [
   {
     id: 1,
     img: "./benz.jpg",
-    title: "Rolls Royce 1960",
+    model: "Rolls Royce 1960",
     interiorColor: "Gray",
     exteriorColor: "Black",
     type: "Manual",
+    price: 40000
   },
   {
     id: 2,
     img: "./none.jpg",
-    title: "BMW 2020",
+    model: "BMW 2020",
     interiorColor: "Gray",
     exteriorColor: "Black",
     type: "automatic",
+    price: 40000
   },
   {
     id: 3,
     img: "./none.jpg",
-    title: "Rolls Royce 1960",
+    model: "Rolls Royce 1960",
     interiorColor: "Gray",
     exteriorColor: "Black",
-    type: "Manual",
+    price: 40000
   },
   {
     id: 4,
     img: "./none.jpg",
-    title: "Rolls Royce 1960",
+    model: "Rolls Royce 1960",
     interiorColor: "Gray",
     exteriorColor: "Black",
     type: "Manual",
+    price: 40000
   },
   {
     id: 5,
     img: "./none.jpg",
-    title: "Rolls Royce 1960",
+    model: "Rolls Royce 1960",
     interiorColor: "Gray",
     exteriorColor: "Black",
     type: "Manual",
+    price: 40000
   },
   {
     id: 6,
     img: "./none.jpg",
-    title: "Rolls Royce 1960",
+    model: "Rolls Royce 1960",
     interiorColor: "Gray",
     exteriorColor: "Black",
     type: "Manual",
+    price: 40000
   },
-  {
-    id: 7,
-    img: "./none.jpg",
-    title: "Rolls Royce 1960",
-    interiorColor: "Gray",
-    exteriorColor: "Black",
-    type: "Manual",
-  },
-  {
-    id: 8,
-    img: "./none.jpg",
-    title: "Rolls Royce 1960",
-    interiorColor: "Gray",
-    exteriorColor: "Black",
-    type: "Manual",
-  },
- 
 ];
 
-// Rendering The Car Detail Dynamically To The DOM
+
+
+
+// Rendering The Car Details Dynamically To The DOM
 function carDetailsContainer() {
-  const sliderContainer = document.querySelector('.slider-container');
   
-  // Iterating Through The Car Details
+  // Iterating Through The Car Arrays..
 
 carDetails.map(carDetail => {
-  sliderContainer.innerHTML += `<div class='slider-content'>
-                                <img src=${carDetail.img} alt=${carDetail.title}/>
-                            </div>`
-});
+   const mainContent = document.querySelector(".main-content");
+  mainContent.innerHTML += `
+                            <div class='car-info-content'>
+                            <div class='model-price'>
+                            <p>${carDetail.model}</p>
+                            <p>$${carDetail.price}</p>
+                            </div>
+                                <img src=${carDetail.img} alt=${carDetail.title}/> 
+                             <p>${carDetail.type}</p>
+                             <button onclick="displayCarDetails(${carDetail.id})">view details</button>
+                             </div>
+                            `;
+                      }
+)};
 
-}
+
+
 carDetailsContainer()
 
-let currentIndex = 0;
-const images = document.querySelectorAll(".slider-content img");
-const totalImages = images.length;
+ function viewCarDetails() {
+   const carInfoContent = document.querySelectorAll(".car-info-content");
+   for (let i = 0; i < carInfoContent.length; i++) {
+     carInfoContent[i].addEventListener("click", () => {
+       const mainContent = document.querySelector(".main-content");
+       const carDetailsBox = document.createElement("div");
+       carDetailsBox.classList.add("car-details-box");
+       mainContent.appendChild(carDetailsBox);
 
-// Display Image on The Browser
+       // Display the car detail box
+       carDetailsBox.style.display = "block";
+       // if(carDetailsBox.style.display === 'block'){
+       //   document.body.removeEventListener('click', ()=> {});
+       // }
 
-function showImage(index) {
-  images.forEach((img, i) => {
-    if (i === index) {
-      img.style.display = "block";
-    } else {
-      img.style.display = "none";
-    }
-  });
-}
+       // Show Car Content
+       ;
+     });
+   }
+ }
 
-// Show Next Image 
-function nextImage() {
-  currentIndex = (currentIndex + 1) % totalImages;
-  showImage(currentIndex);
-}
+ viewCarDetails();
 
-// Show Previous Image
-function prevImage() {
-  currentIndex = (currentIndex - 1 + totalImages) % totalImages;
-  showImage(currentIndex);
-}
-
-const prevButton = document.querySelector(".bxs-chevron-left");
-const nextButton = document.querySelector(".bxs-chevron-right");
-
-nextButton.addEventListener("click", nextImage);
-prevButton.addEventListener("click", prevImage);
+ function displayCarDetails(carId) {
+   const selectedCar = carDetails.find((car) => car.id === carId);
+   console.log(selectedCar)
+  //  if(selectedCar){
+  //   document.querySelector('.car-details-box').innerHTML += `<img src=${carDetail.img}>`
+  //  }
+ }
