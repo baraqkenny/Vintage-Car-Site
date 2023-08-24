@@ -5,22 +5,45 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Orbitron', sans-serif;
-    color: #ffffff;
+    
 }
 
 .container{
     width: 100%;
     background-color: rgb(2, 2, 34);
 }
-/* #0d001d  */
+
+/* Side-bar Styling Start */
 .side-bar{
     width: 5%;
     height: 100%;
-    background-color: #25063f;
-    position: fixed;
-    top: 0;
-    left: 0;
+     background-color: #30233b48;
+     position: fixed;
+     top: 0;
+     left: 0;  
+    
 }
+
+.side-bar-icons{
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    line-height: 3rem;
+    font-size: 25px;
+}
+
+#home-icon{
+    background-color: blueviolet;
+    padding: 10px 10px;
+    border-radius: 50px;
+}
+.bx{
+    
+    color: #ffffff;
+}
+
+/* Side-bar Styling End */
 
 nav{
     display: flex;
@@ -29,12 +52,12 @@ nav{
 nav h1{
     font-size: 30px;
     margin: 1rem;
+    color: #ffffff;
 }
 
 .searchbar-container {
-    /* display: flex; */
     position: relative;
-    left: 20rem;
+    left: 17rem;
     top: 1rem;
 }
 .search-bar{
@@ -51,7 +74,7 @@ nav h1{
     margin-left: 1rem;
     margin-top: 1px;
     padding: 10px 30px;
-    background-color: blue;
+    background-color: blueviolet;
     color: #ffffff;
     font-size: 15px;
     border: none;
@@ -62,9 +85,10 @@ nav h1{
 
 .main-content{
     margin-top: 2rem;
-    margin-left: 12rem;
+    margin-left: 11rem;
     display: flex;
     flex-wrap: wrap;
+    overflow: hidden;
 }
 
 
@@ -72,10 +96,10 @@ nav h1{
     width: 350px;
     height: 260px;
     margin: 5px;
-    background-color: #25063f;
+    background-color: #30233b48;
     border-radius: 15px;
     padding: 10px;
-    cursor: pointer;
+    color: #fff;
  }
 
 .model-price{
@@ -84,26 +108,92 @@ nav h1{
 }
 
 .car-info-content img{
+    object-fit: contain;
     display: block;
     width: 100px;
     margin: 0 auto;
 }
+/* Landing Page Icon Styling Start*/
+.car-icons{
+    display: flex;
+    position: relative;
+    top: 2rem;
+    left: 2rem;
+    padding: 0 10px 0 10px;
+    gap: 5rem;
+}
+
+.car-icons-one{
+    
+}
+
+
+.car-icons  p {
+    font-size: 10px;
+    text-align: center;
+}
+.car-details-btn{
+    position: relative;
+    top: 4rem;
+    left: 7rem;
+    padding: 10px 15px;
+    background-color: blueviolet;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    
+}
+/* Car Details Box Styling */
 
 .car-details-box{
-    width: 800px;
-    height: 470px;
+    width: 1200px;
+    height: 550px;
     background-color: #fff;
     position: absolute;
-    top: 20%;
-    left: 25%;
+    top: 10%;
+    left: 8%;
     display: none;
     border-radius: 5px;
     box-shadow: 2px 5px 20px 5px #000;
     z-index: 1;
 }
 
+.car-details-btn{
+  cursor: pointer;
+}
 
+/* Car Details Box Content Styling */
 
+.car-details-box-content{
+    display: flex;
+    padding: 10px;
+}
 
+/* Content One Styling Start */
+.content-one{
+    
+}
 
+.content-one > img {
+    width: 600px;
+    height: 530px;
+}
 
+/* loading animation */
+.loading {
+  border: 10px solid #f3f3f3;
+  border-top: 10px solid blueviolet; 
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  animation: spin 2s linear infinite;
+  position: absolute;
+  top: 40%;
+  left: 43%;
+  tranform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

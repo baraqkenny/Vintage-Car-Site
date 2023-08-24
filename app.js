@@ -1,4 +1,4 @@
-const carDetails = [
+let carDetails = [
   {
     id: 1,
     img: "./benz.jpg",
@@ -70,9 +70,22 @@ carDetails.map(carDetail => {
                             <p>${carDetail.model}</p>
                             <p>$${carDetail.price}</p>
                             </div>
-                                <img src=${carDetail.img} alt=${carDetail.title}/> 
-                             <p>${carDetail.type}</p>
-                             <button onclick="displayCarDetails(${carDetail.id})">view details</button>
+                                <img src=${carDetail.img} alt=${carDetail.title}/>
+                                <div class="car-icons">
+                                <div class="car-icons-one">
+                                 <i style="background-color: #30233b48; padding: 10px; border-radius: 10px; color: purple;" class='bx bx-gas-pump'></i><br>
+                                 <p>Gas</p>
+                                </div>
+                                  <div class="car-icons-two">
+                                 <i style="background-color: #30233b48; padding: 10px; border-radius: 10px; color: pink;" class='bx bx-gas-pump'></i>
+                                 <p>pump</a>
+                                </div>
+                                   <div class="car-icons-three">
+                                 <i style="background-color: #30233b48; padding: 10px; border-radius: 10px; color: yellow;" class='bx bx-car'></i>
+                                 <p>speed</p>
+                                </div>
+                                </div>
+                             <button class="car-details-btn" onclick="displayCarDetails(${carDetail.id})">view details</button>
                              </div>
                             `;
                       }
@@ -83,22 +96,18 @@ carDetails.map(carDetail => {
 carDetailsContainer()
 
  function viewCarDetails() {
-   const carInfoContent = document.querySelectorAll(".car-info-content");
-   for (let i = 0; i < carInfoContent.length; i++) {
-     carInfoContent[i].addEventListener("click", () => {
-       const mainContent = document.querySelector(".main-content");
-       const carDetailsBox = document.createElement("div");
-       carDetailsBox.classList.add("car-details-box");
-       mainContent.appendChild(carDetailsBox);
-
+   const carDetailsBtn= document.querySelectorAll(".car-details-btn");
+   for (let i = 0; i < carDetailsBtn.length; i++) {
+     carDetailsBtn[i].addEventListener("click", () => {
+       const carDetailsBox = document.querySelector('.car-details-box')
        // Display the car detail box
        carDetailsBox.style.display = "block";
-       // if(carDetailsBox.style.display === 'block'){
-       //   document.body.removeEventListener('click', ()=> {});
-       // }
 
-       // Show Car Content
-       ;
+      // // Show Loading Animation
+      //  const loading = document.getElementById('loading');
+      //   setTimeout(()=> {
+      //     loading.textContent = null;
+      //   },2000)
      });
    }
  }
@@ -106,9 +115,32 @@ carDetailsContainer()
  viewCarDetails();
 
  function displayCarDetails(carId) {
-   const selectedCar = carDetails.find((car) => car.id === carId);
-   console.log(selectedCar)
-  //  if(selectedCar){
-  //   document.querySelector('.car-details-box').innerHTML += `<img src=${carDetail.img}>`
-  //  }
+   // Show Loading Animation
+   const loading = document.getElementById("loading");
+   setTimeout(() => {
+    //  loading.textContent = null;
+   }, 2000);
+
+   // After 2 seconds, display the car details result.
+  //  setTimeout(() => {
+  //    const selectedCar = carDetails.find((car) => car.id === carId);
+  //    console.log(selectedCar);
+  //    if (selectedCar) {
+  //      const carDetailsBox = document.querySelector(".car-details-box");
+  //      carDetailsBox.innerHTML = `<div class="car-details-box-content">
+  //                                 <div class="content-one">
+  //                                 <img src=${selectedCar.img} alt=${selectedCar.model}>
+  //                                 </div>
+  //                               <div class="content-two">
+  //                                 <h1>${selectedCar.model}</h1>
+  //                               </div>
+                              
+  //                               </div>
+  //                               `;
+  //    }
+  //  }, 2000);
  }
+        
+
+  
+ 
